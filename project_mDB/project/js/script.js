@@ -29,11 +29,13 @@ document.querySelector('.promo__genre').innerHTML = 'ДРАМА';
 console.log(promoBack);
 promoBack.style.backgroundImage = 'url(img/bg.jpg)';
 const seenFilms = document.querySelector('.promo__interactive-list');
-movieDB.movies.forEach((item) => {
+
+movieDB.movies.forEach((item, i) => {
 	seenFilms.insertAdjacentHTML(
 		'beforeend',
-		`<li class="promo__interactive-item">${item}
+		`<li class="promo__interactive-item">${++i}. ${item}
 	<div class="delete"></div>
 </li>`
 	);
 });
+// const filmCollection = document.querySelectorAll('.promo__interactive-item');
