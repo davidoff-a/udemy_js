@@ -23,19 +23,48 @@ const movieDB = {
 		'Скотт Пилигрим против...',
 	],
 };
-const promoBack = document.querySelector('.promo__bg');
-document.querySelector('.promo__adv').remove();
-document.querySelector('.promo__genre').innerHTML = 'ДРАМА';
-console.log(promoBack);
-promoBack.style.backgroundImage = 'url(img/bg.jpg)';
-const seenFilms = document.querySelector('.promo__interactive-list');
+// 1.
+//MY SOLUTION
 
-movieDB.movies.forEach((item, i) => {
-	seenFilms.insertAdjacentHTML(
-		'beforeend',
-		`<li class="promo__interactive-item">${++i}. ${item}
-	<div class="delete"></div>
-</li>`
-	);
+// document.querySelector('.promo__adv').remove();
+
+// 2.
+//My solution
+//document.querySelector('.promo__genre').innerHTML = 'ДРАМА';
+
+// 3.
+//my solution
+//const promoBack = document.querySelector('.promo__bg');
+//promoBack.style.backgroundImage = 'url(img/bg.jpg)';
+
+// 4. 5.
+// my solution
+// const seenFilms = document.querySelector('.promo__interactive-list');
+// seenFilms.innerHTML = '';
+// movieDB.movies.forEach((item, i) => {
+// 	seenFilms.insertAdjacentHTML(
+// 		'beforeend',
+// 		`<li class="promo__interactive-item">${++i}. ${item}
+// 	<div class="delete"></div>
+// </li>`
+// 	);
+// });
+
+//Ivan solution of 1
+const adv = document.querySelectorAll('.promo__adv img'),
+	poster = document.querySelector('.promo__bg'),
+	genre = poster.querySelector('.promo__genre'),
+	movieList = document.querySelector('.promo__interactive-list');
+
+adv.forEach((item) => item.remove());
+genre.textContent = 'драма';
+poster.style.backgroundImage = 'url("img/bg.jpg")';
+movieList.innerHTML = '';
+movieDB.movies.sort();
+movieDB.movies.forEach((film, i) => {
+	movieList.innerHTML += `<li class="promo__interactive-item"> ${i + 1} ${film}
+		<div class="delete"></div>
+	</li>
+	`;
 });
 // const filmCollection = document.querySelectorAll('.promo__interactive-item');
