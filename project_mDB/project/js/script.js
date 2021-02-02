@@ -28,3 +28,12 @@ document.querySelector('.promo__adv').remove();
 document.querySelector('.promo__genre').innerHTML = 'ДРАМА';
 console.log(promoBack);
 promoBack.style.backgroundImage = 'url(img/bg.jpg)';
+const seenFilms = document.querySelector('.promo__interactive-list');
+movieDB.movies.forEach((item) => {
+	seenFilms.insertAdjacentHTML(
+		'beforeend',
+		`<li class="promo__interactive-item">${item}
+	<div class="delete"></div>
+</li>`
+	);
+});
