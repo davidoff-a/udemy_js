@@ -28,7 +28,8 @@ P.S. Здесь есть несколько вариантов решения з
 "Добавляем любимый фильм"
 
 5) Фильмы должны быть отсортированы по алфавиту */
-
+document.addEventListener('DOMContentLoaded', ()=>{
+	
 'use strict';
 
 const movieDB = {
@@ -92,6 +93,7 @@ movieList.addEventListener('click', (e) => {
 	}
 	let listItem = e.target.closest('.promo__interactive-item');
 	listItem.remove();
+});
 });
 
 // onclick = function(event) {
